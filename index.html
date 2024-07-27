@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weight Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form>
+      <h1>Weight Calculator</h1>
+      <label for="textBox">Weight to add (total):</label>
+      <input type="number" value="0" id="textBox" /><br />
+
+      <input type="radio" name="unit" id="toPounds" value="pounds" checked />
+      <label for="toPounds">Pounds</label><br />
+
+      <input type="radio" name="unit" id="toKilos" value="kilos" />
+      <label for="toKilos">Kilos</label><br />
+
+      <select id="barSelect">
+        <option value="barWeightOne">45lb/20kg bar</option>
+        <option value="barWeightTwo">35lb/16kg bar</option></select
+      ><br />
+
+      <button type="button" id="calculateButton">Calculate</button>
+      <p id="result"></p>
+    </form>
+
+    <script src="weightCalculator.js"></script>
+  </body>
+</html>
