@@ -12,6 +12,18 @@ function calculateWeight() {
   const barSelectValue = document.getElementById("barSelect").value; //gets bar value
   const weightToAdd = parseFloat(document.getElementById("textBox").value); // converts input value from textBox to floating point number.
 
+  // Function to convert pounds to kilograms
+function poundsToKilos(pounds) {
+  return pounds * 0.453592;
+}
+
+// Function to convert kilograms to pounds
+function kilosToPounds(kilos) {
+  return kilos / 0.453592;
+}
+
+
+  
   // Determine bar weight based on selection
   let barWeight =
     barSelectValue === "barWeightOne"
@@ -47,7 +59,19 @@ function calculateWeight() {
     }
   }
 
-  document.getElementById("result").textContent = resultText; //displays plates needed
+    // Conversion logic for displaying both pounds and kilos
+    let totalWeightInPounds, totalWeightInKilos;
+
+    if (toPoundsChecked) {
+      totalWeightInPounds = weightToAdd;
+      totalWeightInKilos = poundsToKilos(weightToAdd).toFixed(2);
+    } else {
+      totalWeightInKilos = weightToAdd;
+      totalWeightInPounds = kilosToPounds(weightToAdd).toFixed(2);
+    }
+
+  resultText += `<br>Total weight: ${totalWeightInPounds} lbs, \n ${totalWeightInKilos} kg \n`
+  document.getElementById("result").innerHTML = resultText; //displays plates needed
 }
 
 function calculatePlatesNeeded(weightPerSide, plateWeights) {
